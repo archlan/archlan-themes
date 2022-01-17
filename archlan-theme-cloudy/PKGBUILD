@@ -1,0 +1,35 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    PKGBUILD                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: Lanhild <archlan@protonmail.com>           +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/01/16 21:14:50 by Lanhild           #+#    #+#              #
+#    Updated: 2022/01/16 21:15:25 by Lanhild          ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+pkgname=archlan-theme-cloudy
+pkgver=1.0
+pkgrel=1
+pkgdesc="GTK themes collection for ArchLan"
+url="https://github.com/archlan/archlan-themes"
+arch=('any')
+license=('GPL3')
+makedepends=()
+depends=()
+conflicts=()
+groups=(archlan-themes)
+provides=("${pkgname}")
+options=(!strip !emptydirs)
+
+prepare() {
+	cp -af ../files/. ${srcdir}
+}
+
+package() {
+	local _themesdir=${pkgdir}/usr/share/themes
+	mkdir -p "$_themesdir"
+	cp -r ${srcdir}/* "$_themesdir"
+}
