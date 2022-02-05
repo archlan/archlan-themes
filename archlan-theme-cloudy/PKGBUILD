@@ -6,13 +6,13 @@
 #    By: Lanhild <archlan@protonmail.com>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/16 21:14:50 by Lanhild           #+#    #+#              #
-#    Updated: 2022/01/20 18:50:09 by Lanhild          ###   ########.fr        #
+#    Updated: 2022/02/05 11:20:39 by Lanhild          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 pkgname=archlan-theme-cloudy
 pkgver=1.0
-pkgrel=2
+pkgrel=4
 pkgdesc="GTK themes collection for ArchLan"
 url="https://github.com/archlan/archlan-themes"
 arch=('any')
@@ -31,5 +31,5 @@ prepare() {
 package() {
 	local _themesdir=${pkgdir}/usr/share/themes
 	mkdir -p "$_themesdir"
-	cp -r ${srcdir}/* "$_themesdir"
+	cp -rf ${srcdir}/* "$_themesdir"
 }
