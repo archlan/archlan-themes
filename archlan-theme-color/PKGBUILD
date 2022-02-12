@@ -1,0 +1,35 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    PKGBUILD                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: Lanhild <archlan@protonmail.com>           +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/01/16 21:14:50 by Lanhild           #+#    #+#              #
+#    Updated: 2022/02/05 11:20:21 by Lanhild          ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+pkgname=archlan-theme-color
+pkgver=1.0
+pkgrel=1
+pkgdesc="GTK themes collection for ArchLan"
+url="https://github.com/archlan/archlan-themes"
+arch=('any')
+license=('GPL3')
+makedepends=()
+depends=()
+conflicts=()
+groups=('archlan-themes' 'archlan-de')
+provides=("${pkgname}")
+options=(!strip !emptydirs)
+
+prepare() {
+	cp -af ../files/. ${srcdir}
+}
+
+package() {
+	local _themesdir=${pkgdir}/usr/share/themes
+	mkdir -p "$_themesdir"
+	cp -rf ${srcdir}/* "$_themesdir"
+}
